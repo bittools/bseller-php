@@ -43,6 +43,7 @@ Veja um exemplo de como é fácil utilizar:
 1. Utilizando a SDK
     1. [Utilizando a API](doc/usage/API.md)
     1. [Catálogo](doc/usage/CATALOG.md)
+        1. [Ficha Técnica de Produto](doc/usage/catalog/FICHATECNICA.md)
         1. [Variações de Produto](doc/usage/catalog/VARIATION.md)
      
 ## Contribuindo com o Código

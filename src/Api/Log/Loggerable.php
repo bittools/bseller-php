@@ -33,7 +33,10 @@ trait Loggerable
     protected $logFilePath = './';
     
     /** @var string */
-    protected $logAllowed  = false;
+    /*
+     * @todo turn it to false before going to production
+     */
+    protected $logAllowed  = true;
     
     /** @var string */
     protected $logLevel    = \Monolog\Logger::DEBUG;

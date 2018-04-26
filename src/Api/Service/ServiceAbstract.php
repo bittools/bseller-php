@@ -69,6 +69,9 @@ abstract class ServiceAbstract implements ServiceInterface
         ];
 
         if (empty($baseUri)) {
+            /*
+             * @todo change this URL to production enviroment after development phase;
+             */
             $baseUri = 'http://backstg.bseller.com.br/api';
         }
     

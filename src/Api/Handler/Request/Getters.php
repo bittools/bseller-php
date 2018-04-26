@@ -26,6 +26,7 @@ use BSeller\Api\Handler\Request\Sales\OrderHandler;
 use BSeller\Api\Handler\Request\Sales\SystemHandler;
 use BSeller\Api\Handler\Request\Sync\ErrorsHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\VariationHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\FichaTecnicaHandler;
 
 trait Getters
 {
@@ -56,6 +57,13 @@ trait Getters
         return new VariationHandler($this);
     }
 
+    /**
+     * @return FichaTecnicaHandler
+     */
+    public function productFichaTecnica()
+    {
+        return new FichaTecnicaHandler($this);
+    }
 
     /**
      * @return CategoryHandler

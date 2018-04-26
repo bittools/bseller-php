@@ -49,6 +49,22 @@ $entityInterface->setNome('Cor')
 // ...
 ```
 
+### Listando Variações
+
+Você pode fazer a listagem da entidade da seguinte forma:
+
+```php
+// ...
+
+/** @var \BSeller\Api\EntityInterface\Catalog\Product\Variation $entityInterface */
+    $entityInterface = $api->productVariations()
+        ->entityInterface();
+    
+    $response = $entityInterface->variations();
+    $variations = $response->toArray();
+// ...
+```
+
 Para mais informações acesse a [documentação oficial](http://back.bseller.com.br/api/swagger-ui.html).
 
 [Voltar](../../../README.md)

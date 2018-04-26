@@ -155,4 +155,18 @@ class Variation extends EntityAbstract
 
         return $response;
     }
+
+    /**
+     * @return \BSeller\Api\Handler\Response\HandlerInterface
+     */
+    public function variations()
+    {
+        /** @var \BSeller\Api\Handler\Request\Catalog\Product\VariationHandler $handler */
+        $handler = $this->requestHandler();
+
+        /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
+        $response = $handler->variations();
+
+        return $response;
+    }
 }

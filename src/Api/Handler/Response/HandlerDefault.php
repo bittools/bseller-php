@@ -25,7 +25,6 @@ class HandlerDefault extends HandlerAbstract implements HandlerInterfaceSuccess
     /** @var Response */
     protected $httpResponse = null;
     
-    
     /**
      * DefaultHandler constructor.
      *
@@ -51,7 +50,7 @@ class HandlerDefault extends HandlerAbstract implements HandlerInterfaceSuccess
      */
     public function body()
     {
-        return $this->httpResponse()->getBody()->getContents();
+        return $this->bodyString();
     }
     
     

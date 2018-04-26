@@ -40,7 +40,16 @@ $response = $entityInterface->update();
 
 /**
  * DELETE A PRODUCT VARIATION
+ *
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$idTipoVariacao = 10;
-$idVariacao = 12;
+$idTipoVariacao = 1;
+$idVariacao = 10;
 $response = $entityInterface->delete($idTipoVariacao, $idVariacao);
+
+/*
+ * LISTING PRODUCT VARIATIONS
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+$response = $entityInterface->variations();
+$variations = $response->toArray();

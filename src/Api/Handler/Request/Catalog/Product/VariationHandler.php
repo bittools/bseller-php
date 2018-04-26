@@ -22,27 +22,12 @@ use BSeller\Api\Handler\Response\HandlerInterface;
  */
 class VariationHandler extends HandlerAbstract
 {
-
     /** @var string */
     protected $baseUrlPath = '/api/itens/variacoes';
 
-
     /**
-     * @param string $sku
-     *
-     * @return HandlerInterface
-     */
-    public function get($sku)
-    {
-        /** @var HandlerInterface $responseHandler */
-        $responseHandler = $this->service()->get($this->baseUrlPath($sku));
-        return $responseHandler;
-    }
-
-
-    /**
-     * @param string $sku
-     *
+     * @param $idTipoVariacao
+     * @param $idVariacao
      * @return HandlerInterface
      */
     public function delete($idTipoVariacao, $idVariacao)
@@ -102,6 +87,14 @@ class VariationHandler extends HandlerAbstract
         return $responseHandler;
     }
 
+    /**
+     * @return \BSeller\Api\Handler\Response\HandlerInterface
+     */
+    public function variations()
+    {
+        $responseHandler = $this->service()->get($this->baseUrlPath());
+        return $responseHandler;
+    }
 
     /**
      * @return Variation
