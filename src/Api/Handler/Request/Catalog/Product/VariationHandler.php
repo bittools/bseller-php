@@ -1,13 +1,5 @@
 <?php
 
-namespace BSeller\Api\Handler\Request\Catalog\Product;
-
-use BSeller\Api\DataTransformer\Catalog\Product\Variation\Create;
-use BSeller\Api\DataTransformer\Catalog\Product\Variation\Update;
-use BSeller\Api\EntityInterface\Catalog\Product\Variation;
-use BSeller\Api\Handler\Request\HandlerAbstract;
-use BSeller\Api\Handler\Response\HandlerInterface;
-
 /**
  * BIT Tools Platform | B2W - Companhia Digital
  *
@@ -20,6 +12,15 @@ use BSeller\Api\Handler\Response\HandlerInterface;
  *
  * @author    Julio Reis <julio.reis@b2wdigital.com>
  */
+
+namespace BSeller\Api\Handler\Request\Catalog\Product;
+
+use BSeller\Api\DataTransformer\Catalog\Product\Variation\Create;
+use BSeller\Api\DataTransformer\Catalog\Product\Variation\Update;
+use BSeller\Api\EntityInterface\Catalog\Product\Variation;
+use BSeller\Api\Handler\Request\HandlerAbstract;
+use BSeller\Api\Handler\Response\HandlerInterface;
+
 class VariationHandler extends HandlerAbstract
 {
     /** @var string */

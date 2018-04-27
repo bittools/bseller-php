@@ -1,13 +1,5 @@
 <?php
 
-namespace BSeller\Api\Handler\Request\Catalog\Product;
-
-use BSeller\Api\DataTransformer\Catalog\Product\Variation\Create;
-use BSeller\Api\DataTransformer\Catalog\Product\Variation\Update;
-use BSeller\Api\EntityInterface\Catalog\Product\Variation;
-use BSeller\Api\Handler\Request\HandlerAbstract;
-use BSeller\Api\Handler\Response\HandlerInterface;
-
 /**
  * BIT Tools Platform | B2W - Companhia Digital
  *
@@ -20,7 +12,13 @@ use BSeller\Api\Handler\Response\HandlerInterface;
  *
  * @author    Julio Reis <julio.reis@b2wdigital.com>
  */
-class FichaTecnicaHandler extends HandlerAbstract
+
+namespace BSeller\Api\Handler\Request\Catalog\Product;
+
+use BSeller\Api\Handler\Request\HandlerAbstract;
+use BSeller\Api\Handler\Response\HandlerInterface;
+
+class AttributeHandler extends HandlerAbstract
 {
 
     /** @var string */
@@ -30,7 +28,7 @@ class FichaTecnicaHandler extends HandlerAbstract
     /**
      * @return HandlerInterface
      */
-    public function fichaTecnica()
+    public function attributes()
     {
         /** @var HandlerInterface $responseHandler */
         $responseHandler = $this->service()->get($this->baseUrlPath());
@@ -38,7 +36,7 @@ class FichaTecnicaHandler extends HandlerAbstract
     }
 
     /**
-     * @return Variation
+     * @return null
      */
     public function entityInterface()
     {

@@ -17,28 +17,18 @@
 
 namespace BSeller\Api\Handler\Request;
 
-use BSeller\Api\Handler\Request\Catalog\CategoryHandler;
-use BSeller\Api\Handler\Request\Catalog\Product\AttributeHandler;
 use BSeller\Api\Handler\Request\Catalog\ProductHandler;
-use BSeller\Api\Handler\Request\Sales\Order\QueueHandler;
-use BSeller\Api\Handler\Request\Sales\Order\StatusHandler;
-use BSeller\Api\Handler\Request\Sales\OrderHandler;
-use BSeller\Api\Handler\Request\Sales\SystemHandler;
-use BSeller\Api\Handler\Request\Sync\ErrorsHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\VariationHandler;
-use BSeller\Api\Handler\Request\Catalog\Product\FichaTecnicaHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\AttributeHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\CategoryHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\StockHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\PriceHandler;
+use BSeller\Api\Handler\Request\Sales\PaymentMethodHandler;
+use BSeller\Api\Handler\Request\Sales\OrderHandler;
+use BSeller\Api\Handler\Request\Sales\VoucherHandler;
 
 trait Getters
 {
-
-    /**
-     * @return AttributeHandler
-     */
-    public function productAttribute()
-    {
-        return new AttributeHandler($this);
-    }
-
 
     /**
      * @return ProductHandler
@@ -58,30 +48,36 @@ trait Getters
     }
 
     /**
-     * @return FichaTecnicaHandler
+     * @return AttributeHandler
      */
-    public function productFichaTecnica()
+    public function productAttribute()
     {
-        return new FichaTecnicaHandler($this);
+        return new AttributeHandler($this);
     }
 
     /**
      * @return CategoryHandler
      */
-    public function category()
+    public function productCategory()
     {
         return new CategoryHandler($this);
     }
 
-
     /**
-     * @return QueueHandler
+     * @return StockHandler
      */
-    public function queue()
+    public function productStock()
     {
-        return new QueueHandler($this);
+        return new StockHandler($this);
     }
 
+    /**
+     * @return ProductHandler
+     */
+    public function productPrice()
+    {
+        return new PriceHandler($this);
+    }
 
     /**
      * @return OrderHandler
@@ -91,7 +87,6 @@ trait Getters
         return new OrderHandler($this);
     }
 
-
     /**
      * @return StatusHandler
      */
@@ -100,21 +95,19 @@ trait Getters
         return new StatusHandler($this);
     }
 
-
     /**
-     * @return SystemHandler
+     * @return PaymentMethodHandler
      */
-    public function saleSystems()
+    public function paymentMethod()
     {
-        return new SystemHandler($this);
+        return new PaymentMethodHandler($this);
     }
 
-
     /**
-     * @return ErrorsHandler
+     * @return VoucherHandler
      */
-    public function syncErrors()
+    public function voucher()
     {
-        return new ErrorsHandler($this);
+        return new VoucherHandler($this);
     }
 }

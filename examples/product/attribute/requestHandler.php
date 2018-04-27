@@ -14,13 +14,13 @@
 
 include __DIR__ . '/../../api.php';
 
-/** @var \BSeller\Api\Handler\Request\Catalog\Product\FichaTecnicaHandler $fichaTecnicaHandler */
-$fichaTecnicaHandler = $api->productFichaTecnica();
+/** @var \BSeller\Api\Handler\Request\Catalog\Product\AttributeHandler $requestHandler */
+$requestHandler = $api->productAttribute();
 
 /**
- * LIST PRODUCT "FICHA TECNICAS"
+ * LIST PRODUCT ATTRIBUTES
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $fichaTecnicaHandler->fichaTecnica();
-$fichaTecnica = $response->toArray();
-var_dump($fichaTecnica);
+$response = $requestHandler->attributes();
+$list = $response->toArray();
+var_dump($list);

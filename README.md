@@ -42,9 +42,9 @@ Veja um exemplo de como é fácil utilizar:
 1. [Instalação e Setup](doc/INSTALLATION.md)
 1. Utilizando a SDK
     1. [Utilizando a API](doc/usage/API.md)
-    1. [Catálogo](doc/usage/CATALOG.md)
-        1. [Ficha Técnica de Produto](doc/usage/catalog/FICHATECNICA.md)
-        1. [Variações de Produto](doc/usage/catalog/VARIATION.md)
+    1. [Produto](doc/usage/PRODUCT.md)
+        1. [Atributo de Produto](doc/usage/product/ATTRIBUTE.md)
+        1. [Variação de Produto](doc/usage/product/VARIATION.md)
      
 ## Contribuindo com o Código
 
@@ -52,7 +52,7 @@ Sua contribuição é sempre bem vinda! Por favor, leia a [documentação](doc/C
 
 ## Autores
 
-Tiago Sampaio
+Julio Reis
 
 ## Suporte
 

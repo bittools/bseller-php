@@ -102,4 +102,15 @@ abstract class HandlerAbstract implements HandlerInterface
 
         return $baseUrlPath;
     }
+
+    /**
+     * @param $batchNumber string
+     * @return HandlerInterface
+     */
+    public function batch($batchNumber)
+    {
+        /** @var HandlerInterface $responseHandler */
+        $responseHandler = $this->service()->put($this->baseUrlPath("/massivo/{$batchNumber}"));
+        return $responseHandler;
+    }
 }
