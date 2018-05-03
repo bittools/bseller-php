@@ -19,22 +19,26 @@ namespace BSeller\Api\DataTransformer\Catalog\Product\Variation;
 
 use BSeller\Api\DataTransformer\Builders;
 use BSeller\Api\DataTransformer\DataTransformerAbstract;
+use BSeller\Api\Translation\Translatable;
 
 class Create extends DataTransformerAbstract
 {
     use Builders;
+    use Translatable;
 
     /**
      * CreateVariation constructor.
      *
-     * @param string $nome
+     * @param string $name
      * @param int $id
      * @param array  $specifications
      */
-    public function __construct($nome, $id, array $specifications = [])
+    public function __construct($name, $id, array $specifications = [])
     {
-        $variation['nome'] = (string) $nome;
+        $variation['nome'] = (string) $name;
         $variation['id'] = (int) $id;
+
+        $specifications = $this->translateArrayKeys($specifications);
 
         /** Build product variation's specifications. */
         $this->buildProductSpecifications($variation, (array) $specifications);

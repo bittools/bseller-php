@@ -23,20 +23,4 @@ $requestHandler = $api->voucher();
  */
 $response = $requestHandler->vouchers(1);
 $list = $response->toArray();
-var_dump($list);exit;
-
-/**
- * LIST PAYMENT CREDIT CARD FLAGS
- * @var BSeller\Api\Handler\Response\HandlerInterface $response
- */
-$response = $requestHandler->cardFlags();
-$list = $response->toArray();
-//var_dump($list);
-
-/**
- * LIST PAYMENT CONDITIONS
- * @var BSeller\Api\Handler\Response\HandlerInterface $response
- */
-$response = $requestHandler->paymentConditions();
-$list = $response->toArray();
-//var_dump($list);
+var_dump($list);

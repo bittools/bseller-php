@@ -39,19 +39,19 @@ class VariationHandler extends HandlerAbstract
     }
 
     /**
-     * @param string $nome
+     * @param string $name
      * @param array  $specifications
      *
      * @return \BSeller\Api\Handler\Response\HandlerInterface
      */
     public function create(
-        $nome,
+        $name,
         $id,
         $specifications = []
     )
     {
         $transformer = new Create(
-            $nome,
+            $name,
             $id,
             $specifications
         );
@@ -64,19 +64,19 @@ class VariationHandler extends HandlerAbstract
     }
 
     /**
-     * @param string $nome
+     * @param string $name
      * @param array $specifications
      *
      * @return \BSeller\Api\Handler\Response\HandlerInterface
      */
     public function update(
-        $nome,
+        $name,
         $id,
         $specifications = []
     )
     {
         $transformer = new Update(
-            $nome,
+            $name,
             $id,
             $specifications
         );

@@ -46,19 +46,19 @@ class Variation extends EntityAbstract
     /**
      * @return string
      */
-    public function getNome()
+    public function getName()
     {
-        return (string) $this->getData('nome');
+        return (string) $this->getData('name');
     }
 
     /**
-     * @param string $nome
+     * @param string $name
      *
      * @return $this
      */
-    public function setNome($nome)
+    public function setName($name)
     {
-        $this->setData('nome', (string)$nome);
+        $this->setData('name', (string)$name);
         return $this;
     }
 
@@ -72,10 +72,10 @@ class Variation extends EntityAbstract
 
     /**
      * @param int $id
-     * @param string $nome
+     * @param string $name
      * @return string
      */
-    public function addSpecification($id, $nome)
+    public function addSpecification($id, $name)
     {
         $specifications = $this->getSpecifications();
 
@@ -86,7 +86,7 @@ class Variation extends EntityAbstract
             }
         }
 
-        $specifications[] = ['id' => $id, 'nome' => $nome];
+        $specifications[] = ['id' => $id, 'name' => $name];
 
         $this->setData('specifications', $specifications);
 
@@ -114,7 +114,7 @@ class Variation extends EntityAbstract
 
         /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
         $response = $handler->create(
-            $this->getNome(),
+            $this->getName(),
             $this->getId(),
             $this->getSpecifications()
         );
@@ -134,7 +134,7 @@ class Variation extends EntityAbstract
 
         /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
         $response = $handler->update(
-            $this->getNome(),
+            $this->getName(),
             $this->getId(),
             $this->getSpecifications()
         );

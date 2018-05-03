@@ -66,6 +66,7 @@ abstract class ServiceAbstract implements ServiceInterface
         
         $defaults = [
             'headers' => $headers,
+            'exceptions' => false,
         ];
 
         if (empty($baseUri)) {

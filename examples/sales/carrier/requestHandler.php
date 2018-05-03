@@ -14,30 +14,23 @@
 
 include __DIR__ . '/../../api.php';
 
-/** @var BSeller\Api\Handler\Request\Sales\PaymentMethodHandler $requestHandler */
-$requestHandler = $api->paymentMethod();
+/** @var BSeller\Api\Handler\Request\Sales\CarrierHandler $requestHandler */
+$requestHandler = $api->carrier();
 
 /**
- * LIST PAYMENT METHODS
+ * LIST CARRIERS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $requestHandler->paymentMethods();
+//$response = $requestHandler->carriers();
+//$list = $response->toArray();
+//var_dump($list);
+//exit;
+
+/**
+ * LIST CONTRACTS
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+$response = $requestHandler->contracts('34028316002823');
 $list = $response->toArray();
 var_dump($list);
 exit;
-
-/**
- * LIST PAYMENT CREDIT CARD FLAGS
- * @var BSeller\Api\Handler\Response\HandlerInterface $response
- */
-$response = $requestHandler->cardFlags();
-$list = $response->toArray();
-//var_dump($list);
-
-/**
- * LIST PAYMENT CONDITIONS
- * @var BSeller\Api\Handler\Response\HandlerInterface $response
- */
-$response = $requestHandler->paymentConditions();
-$list = $response->toArray();
-//var_dump($list);

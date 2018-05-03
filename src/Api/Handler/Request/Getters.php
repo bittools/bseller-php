@@ -24,6 +24,7 @@ use BSeller\Api\Handler\Request\Catalog\Product\CategoryHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\StockHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\PriceHandler;
 use BSeller\Api\Handler\Request\Sales\PaymentMethodHandler;
+use BSeller\Api\Handler\Request\Sales\CarrierHandler;
 use BSeller\Api\Handler\Request\Sales\OrderHandler;
 use BSeller\Api\Handler\Request\Sales\VoucherHandler;
 
@@ -101,6 +102,14 @@ trait Getters
     public function paymentMethod()
     {
         return new PaymentMethodHandler($this);
+    }
+
+    /**
+     * @return CarrierHandler
+     */
+    public function carrier()
+    {
+        return new CarrierHandler($this);
     }
 
     /**

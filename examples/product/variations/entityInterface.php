@@ -18,7 +18,7 @@ include __DIR__ . '/../../api.php';
 $entityInterface = $api->productVariations()
     ->entityInterface();
 
-$entityInterface->setNome('Cor')
+$entityInterface->setName('Cor')
     ->setId(1)
     ->addSpecification(1, 'Azul')
     ->addSpecification(2, 'Amarelo')
@@ -32,7 +32,7 @@ $entityInterface->setNome('Cor')
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
 $response = $entityInterface->create();
-
+exit;
 /**
  * UPDATE A PRODUCT VARIATION
  */
