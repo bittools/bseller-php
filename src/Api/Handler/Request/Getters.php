@@ -23,6 +23,8 @@ use BSeller\Api\Handler\Request\Catalog\Product\AttributeHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\CategoryHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\StockHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\PriceHandler;
+use BSeller\Api\Handler\Request\Sales\DeliveryHandler;
+use BSeller\Api\Handler\Request\Sales\TrackingHandler;
 use BSeller\Api\Handler\Request\Sales\PaymentMethodHandler;
 use BSeller\Api\Handler\Request\Sales\CarrierHandler;
 use BSeller\Api\Handler\Request\Sales\OrderHandler;
@@ -89,14 +91,6 @@ trait Getters
     }
 
     /**
-     * @return StatusHandler
-     */
-    public function orderStatus()
-    {
-        return new StatusHandler($this);
-    }
-
-    /**
      * @return PaymentMethodHandler
      */
     public function paymentMethod()
@@ -110,6 +104,22 @@ trait Getters
     public function carrier()
     {
         return new CarrierHandler($this);
+    }
+
+    /**
+     * @return DeliveryHandler
+     */
+    public function delivery()
+    {
+        return new DeliveryHandler($this);
+    }
+
+    /**
+     * @return TrackingHandler
+     */
+    public function tracking()
+    {
+        return new TrackingHandler($this);
     }
 
     /**

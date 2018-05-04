@@ -24,8 +24,8 @@ $requestHandler = $api->productPrice();
 $tipoInterface = 'SITE';
 $response = $requestHandler->pricesUpdated($tipoInterface);
 $list = $response->toArray();
+var_dump($list);exit;
 $batchNumber = $list['batchNumber'];
-//var_dump($list);
 
 /**
  * CONFIRM BATCH

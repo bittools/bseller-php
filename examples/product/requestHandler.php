@@ -31,7 +31,7 @@ var_dump($list);exit;
  */
 $response = $requestHandler->productsUpdated('SITE', 1);
 $list = $response->toArray();
-//var_dump($list);exit;
+var_dump($list);exit;
 $batchNumber = $list['batchNumber'];
 
 /**
@@ -46,11 +46,11 @@ if ($batchNumber) {
  * GET SPECIFIC PRODUCT
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$codigoItem = 'PRODUTOSEMVARIACAO01';
-$tipoInterface = 'SITE';
-$response = $requestHandler->product($codigoItem, $tipoInterface);
+$itemCode = 'PRODUTOSEMVARIACAO01';
+$interfaceType = 'SITE';
+$response = $requestHandler->product($itemCode, $interfaceType);
 $object = json_decode($response->body(), true);
-//var_dump($object);
+var_dump($object);
 
 /**
  * GET SPECIFIC PRODUCT STOCK
@@ -60,4 +60,4 @@ $codigoItem = 'PRODUTOSEMVARIACAO01';
 $tipoInterface = 'SITE';
 $response = $requestHandler->stock($codigoItem, $tipoInterface);
 $object = json_decode($response->body(), true);
-//var_dump($object);
+var_dump($object);

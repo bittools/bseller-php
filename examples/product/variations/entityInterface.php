@@ -31,12 +31,11 @@ $entityInterface->setName('Cor')
  *
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $entityInterface->create();
-exit;
+//$response = $entityInterface->create();
 /**
  * UPDATE A PRODUCT VARIATION
  */
-$response = $entityInterface->update();
+//$response = $entityInterface->update();
 
 /**
  * DELETE A PRODUCT VARIATION
@@ -45,11 +44,11 @@ $response = $entityInterface->update();
  */
 $idTipoVariacao = 1;
 $idVariacao = 10;
-$response = $entityInterface->delete($idTipoVariacao, $idVariacao);
+//$response = $entityInterface->delete($idTipoVariacao, $idVariacao);
 
 /*
  * LISTING PRODUCT VARIATIONS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
 $response = $entityInterface->variations();
-$variations = $response->toArray();
+var_dump($response->toArray());
