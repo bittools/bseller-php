@@ -4,7 +4,7 @@ namespace BSellerTest;
 
 use PHPUnit\Framework\TestCase;
 use BSeller\Api;
-use BSeller\Api\Handler\Request\Catalog\CategoryHandler;
+use BSeller\Api\Handler\Request\Catalog\Product\CategoryHandler;
 use BSeller\Api\Handler\Request\Catalog\Product\AttributeHandler;
 use BSeller\Api\Handler\Request\Catalog\ProductHandler;
 use BSeller\ApiInterface;
@@ -26,17 +26,14 @@ class ApiTest extends TestCase
     
     /** @var Api */
     protected $api       = null;
-
-    /** @var string */
-    protected $email     = 'test@e-smart.com.br';
     
     /** @var string */
-    protected $apiKey    = 'testApiKey';
+    protected $authToken    = '123456789';
     
     
     public function setUp()
     {
-        $this->api = new Api($this->email, $this->apiKey);
+        $this->api = new Api($this->authToken);
     }
     
     
@@ -81,6 +78,6 @@ class ApiTest extends TestCase
      */
     public function createNewInstanceOfCategoryHandler()
     {
-        $this->assertInstanceOf(CategoryHandler::class, $this->api->category());
+        $this->assertInstanceOf(CategoryHandler::class, $this->api->productCategory());
     }
 }

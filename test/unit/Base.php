@@ -23,10 +23,7 @@ trait Base
     protected $api       = null;
     
     /** @var string */
-    protected $email     = 'test@e-smart.com.br';
-    
-    /** @var string */
-    protected $apiKey    = 'testApiKey';
+    protected $authToken    = '123456789';
     
     
     /**
@@ -35,7 +32,7 @@ trait Base
     protected function api()
     {
         if (empty($this->api)) {
-            $this->api = new Api($this->email, $this->apiKey);
+            $this->api = new Api($this->authToken);
         }
     
         return $this->api;
