@@ -18,9 +18,29 @@ include __DIR__ . '/../../api.php';
 $stockHandler = $api->productStock();
 
 /**
- * LIST PRODUCT "FICHA TECNICAS"
+ * LIST PRODUCTS STOCKS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
 $response = $stockHandler->stocksUpdated();
+$list = $response->toArray();
+var_dump($list);
+$batchNumber = $list['batchNumber'];
+
+/**
+ * CONFIRM BATCH
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+if ($batchNumber) {
+    $response = $requestHandler->batch($batchNumber);
+}
+var_dump($response->body());
+
+/**
+ * GET PRODUCT STOCK
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+$productCode = 'PRODUTOSEMVARIACAO01';
+$tipoInterface = 'SITE';
+$response = $stockHandler->stock($productCode, $tipoInterface);
 $list = $response->toArray();
 var_dump($list);

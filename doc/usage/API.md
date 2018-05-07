@@ -27,6 +27,7 @@ Após isso você poderá instanciar uma nova classe API:
 
 Com isso você estará apto a utlizar qualquer funcionalidade da integração.
 
-[Voltar](../../README.md)
+** Um detalhe bastante **importante** na utilização da API: Existem duas formas de acessar os recursos. Através de um objeto **"Entity Interface"** e/ou através de um **"Request Handler"**. Em geral, qualquer recurso pode ser acessado diretamente pelo **"Request Handler"** porém, para algum deles ("pedido" e "variação de produto"), foi criado uma "camada acima" (wrapper) para facilitar a utilização do mesmo, provendo alguns métodos auxiliares.
 
-[Continuar: Catálogo](CATALOG.md)
+
+[Voltar](../../README.md)

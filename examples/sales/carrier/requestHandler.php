@@ -21,16 +21,16 @@ $requestHandler = $api->carrier();
  * LIST CARRIERS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-//$response = $requestHandler->carriers();
-//$list = $response->toArray();
-//var_dump($list);
-//exit;
+$response = $requestHandler->carriers();
+$list = $response->toArray();
+var_dump($list);
 
 /**
  * LIST CONTRACTS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $requestHandler->contracts('34028316002823');
+$carrierId = '34028316002823';
+$response = $requestHandler->contracts($carrierId);
 $list = $response->toArray();
 var_dump($list);
 exit;

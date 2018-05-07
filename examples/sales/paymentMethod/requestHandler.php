@@ -24,7 +24,6 @@ $requestHandler = $api->paymentMethod();
 $response = $requestHandler->paymentMethods();
 $list = $response->toArray();
 var_dump($list);
-exit;
 
 /**
  * LIST PAYMENT CREDIT CARD FLAGS
@@ -32,7 +31,7 @@ exit;
  */
 $response = $requestHandler->cardFlags();
 $list = $response->toArray();
-//var_dump($list);
+var_dump($list);
 
 /**
  * LIST PAYMENT CONDITIONS
@@ -40,4 +39,4 @@ $list = $response->toArray();
  */
 $response = $requestHandler->paymentConditions();
 $list = $response->toArray();
-//var_dump($list);
+var_dump($list);

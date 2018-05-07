@@ -1,4 +1,4 @@
-![BSeller - Platform](/doc/images/logo.png)
+![BSeller - Platform](doc/images/logo.png)
 
 # BSeller - PHP SDK
 
@@ -44,7 +44,16 @@ Veja um exemplo de como é fácil utilizar:
     1. [Utilizando a API](doc/usage/API.md)
     1. [Produto](doc/usage/PRODUCT.md)
         1. [Atributo de Produto](doc/usage/product/ATTRIBUTE.md)
+        1. [Categoria de Produto](doc/usage/product/CATEGORY.md)
+        1. [Preço de Produto](doc/usage/product/PRICE.md)
+        1. [Estoque de Produto](doc/usage/product/STOCK.md)
         1. [Variação de Produto](doc/usage/product/VARIATION.md)
+    1. [Venda](doc/usage/SALE.md)
+        1. [Entrega](doc/usage/sale/DELIVERY.md)
+        1. [Métodos de Pagamento](doc/usage/sale/PAYMENTMETHOD.md)
+        1. [Pedido](doc/usage/sale/ORDER.md)
+        1. [Status de Pedido](doc/usage/sale/TRACKING.md)
+        1. [Transportadora](doc/usage/sale/CARRIER.md)
      
 ## Contribuindo com o Código
 

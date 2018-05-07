@@ -21,17 +21,23 @@ $requestHandler = $api->product();
  * LIST PRODUCTS
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $requestHandler->products('SITE', 0, 0);
+$interfaceType = 'SITE';
+$maxRegisters = 100;
+$pageNumber = 1;
+$response = $requestHandler->products($interfaceType, $maxRegisters, $pageNumber);
 $list = $response->toArray();
-var_dump($list);exit;
+var_dump($list);
 
 /**
  * LIST PRODUCTS MASSIVELLY
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
-$response = $requestHandler->productsUpdated('SITE', 1);
+$interfaceType = 'SITE';
+$maxRegisters = 100;
+
+$response = $requestHandler->productsUpdated($interfaceType, $maxRegisters);
 $list = $response->toArray();
-var_dump($list);exit;
+var_dump($list);
 $batchNumber = $list['batchNumber'];
 
 /**
@@ -49,8 +55,7 @@ if ($batchNumber) {
 $itemCode = 'PRODUTOSEMVARIACAO01';
 $interfaceType = 'SITE';
 $response = $requestHandler->product($itemCode, $interfaceType);
-$object = json_decode($response->body(), true);
-var_dump($object);
+var_dump($response->toArray());
 
 /**
  * GET SPECIFIC PRODUCT STOCK

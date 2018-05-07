@@ -24,3 +24,12 @@ $requestHandler = $api->voucher();
 $response = $requestHandler->vouchers(1);
 $list = $response->toArray();
 var_dump($list);
+$batchNumber = $list['batchNumber'];
+
+/**
+ * CONFIRM BATCH
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+if ($batchNumber) {
+    $response = $requestHandler->batch($batchNumber);
+}

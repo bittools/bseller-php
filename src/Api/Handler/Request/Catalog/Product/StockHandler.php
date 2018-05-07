@@ -22,7 +22,7 @@ class StockHandler extends HandlerAbstract
 {
 
     /** @var string */
-    protected $baseUrlPath = '/api/itens/estoque';
+    protected $baseUrlPath = '/api/itens';
 
     /**
      * @param null $tipoInterface
@@ -41,7 +41,22 @@ class StockHandler extends HandlerAbstract
         }
 
         /** @var HandlerInterface $responseHandler */
-        $responseHandler = $this->service()->get($this->baseUrlPath('/massivo', $params));
+        $responseHandler = $this->service()->get($this->baseUrlPath('/estoque/massivo', $params));
+        return $responseHandler;
+    }
+
+    /**
+     * @param string $productCode
+     * @param string $tipoInterface
+     * @return HandlerInterface
+     */
+    public function stock($productCode, $tipoInterface)
+    {
+        $params = [];
+        $params['tipoInterface'] = $tipoInterface;
+
+        /** @var HandlerInterface $responseHandler */
+        $responseHandler = $this->service()->get($this->baseUrlPath("{$productCode}/estoque", $params));
         return $responseHandler;
     }
 
