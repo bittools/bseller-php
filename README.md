@@ -54,6 +54,7 @@ Veja um exemplo de como é fácil utilizar:
         1. [Pedido](doc/usage/sale/ORDER.md)
         1. [Status de Pedido](doc/usage/sale/TRACKING.md)
         1. [Transportadora](doc/usage/sale/CARRIER.md)
+1. [Internacionalização da API](doc/usage/TRANSLATE.md)
      
 ## Contribuindo com o Código
 
