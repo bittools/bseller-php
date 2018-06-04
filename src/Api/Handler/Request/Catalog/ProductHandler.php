@@ -99,6 +99,23 @@ class ProductHandler extends HandlerAbstract
     }
 
     /**
+     * @param $codigoItem
+     * @param null $tipoInterface
+     * @return HandlerInterface
+     */
+    public function productSons($codigoItem, $tipoInterface = null) {
+        $params = [];
+        if ($tipoInterface) {
+            $params['tipoInterface'] = $tipoInterface;
+        }
+
+        /** @var HandlerInterface $responseHandler */
+        $responseHandler = $this->service()->get($this->baseUrlPath("/{$codigoItem}/filhos", $params));
+        return $responseHandler;
+    }
+
+
+    /**
      * @return Variation
      */
     public function entityInterface()

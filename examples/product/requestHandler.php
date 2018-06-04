@@ -66,3 +66,13 @@ $tipoInterface = 'SITE';
 $response = $requestHandler->stock($codigoItem, $tipoInterface);
 $object = json_decode($response->body(), true);
 var_dump($object);
+
+/**
+ * LIST PRODUCT' SONS
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+$codigoItem = 'PRODUTOITEMPAI01';
+$tipoInterface = 'SITE';
+$response = $requestHandler->productSons($codigoItem, $tipoInterface);
+$object = json_decode($response->body(), true);
+var_dump($response->toArray());
