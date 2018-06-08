@@ -61,6 +61,17 @@ class StockHandler extends HandlerAbstract
     }
 
     /**
+     * @param $batchNumber string
+     * @return HandlerInterface
+     */
+    public function batch($batchNumber)
+    {
+        /** @var HandlerInterface $responseHandler */
+        $responseHandler = $this->service()->put($this->baseUrlPath("/estoque/massivo/{$batchNumber}"));
+        return $responseHandler;
+    }
+
+    /**
      * @return Variation
      */
     public function entityInterface()
