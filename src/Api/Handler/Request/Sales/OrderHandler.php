@@ -16,6 +16,7 @@
 namespace BSeller\Api\Handler\Request\Sales;
 
 use BSeller\Api\DataTransformer\Sales\Order\PaymentApproval\Create as PaymentApprovalCreate;
+use BSeller\Api\DataTransformer\Sales\Order\Create as OrderCreate;
 use BSeller\Api\EntityInterface\Sales\Order;
 use BSeller\Api\Handler\Request\HandlerAbstract;
 use BSeller\Api\Handler\Response\HandlerInterface;
@@ -53,7 +54,7 @@ class OrderHandler extends HandlerAbstract
         $values
     )
     {
-        $transformer = new Create(
+        $transformer = new OrderCreate(
             $salesChannel,
             $shippingCustomer,
             $billingCustomer,
