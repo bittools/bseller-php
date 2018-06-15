@@ -21,17 +21,19 @@ $entityInterface = $api->invoice()
 /**
  * APPROVE PAYMENT
  */
-$orderId = '5658979804';
+$orderId = '123123123';
 $transactionDate = '2018-05-04T13:10:44.000Z';
 $bankCode = '123';
 $agencyCode = '12349';
 $accountNumber = '123456789';
+$returningCode = 0;
 
 $entityInterface->setOrderId($orderId)
     ->setTransactionDate($transactionDate)
     ->setBankCode($bankCode)
     ->setAgencyCode($agencyCode)
-    ->setAccountNumber($accountNumber);
+    ->setAccountNumber($accountNumber)
+    ->setReturningCode($returningCode);
 
 /**
  * SEND INVOICE TO BSELLER
@@ -39,3 +41,4 @@ $entityInterface->setOrderId($orderId)
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
 $response = $entityInterface->create();
+var_dump($response->body());

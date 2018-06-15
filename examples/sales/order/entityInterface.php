@@ -22,7 +22,8 @@ $entityInterface = $api->order()
 $salesChannel = 'SITE';
 $emissionDate = '2018-05-03T13:10:44.000Z';
 $includingDate = '2018-05-03T13:10:44.000Z';
-$orderNumber = random_int(1, 9999999999);
+//$orderNumber = random_int(1, 9999999999);
+$orderNumber = 123123123;
 $orderSouce = 'LJ';
 $orderForConsuming = true;
 $orderType = 'N';
@@ -166,3 +167,4 @@ $entityInterface
  * @var BSeller\Api\Handler\Response\HandlerInterface $response
  */
 $response = $entityInterface->create();
+var_dump($response->body());

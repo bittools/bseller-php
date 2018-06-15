@@ -102,7 +102,7 @@ class Invoice extends EntityAbstract
      */
     public function getBankCode()
     {
-        return (string)$this->getData('bankCode');
+        return (int)$this->getData('bankCode');
     }
 
     /**
@@ -120,7 +120,7 @@ class Invoice extends EntityAbstract
      */
     public function getAgencyCode()
     {
-        return (string)$this->getData('agencyCode');
+        return (int)$this->getData('agencyCode');
     }
 
     /**
@@ -174,7 +174,7 @@ class Invoice extends EntityAbstract
      */
     public function getReturningCode()
     {
-        return (string)$this->getData('returningCode');
+        return (int)$this->getData('returningCode');
     }
 
     /**
@@ -192,7 +192,7 @@ class Invoice extends EntityAbstract
      */
     public function getAuthorizationId()
     {
-        return (string)$this->getData('authorizationId');
+        return (int)$this->getData('authorizationId');
     }
 
     /**
@@ -210,7 +210,7 @@ class Invoice extends EntityAbstract
      */
     public function getAuthorizingNsu()
     {
-        return (string)$this->getData('authorizingNsu');
+        return (int)$this->getData('authorizingNsu');
     }
 
     /**
@@ -228,7 +228,7 @@ class Invoice extends EntityAbstract
      */
     public function getCtfNsu()
     {
-        return (string)$this->getData('ctfNsu');
+        return (int)$this->getData('ctfNsu');
     }
 
     /**
