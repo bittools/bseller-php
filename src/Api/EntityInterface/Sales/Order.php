@@ -28,6 +28,55 @@ class Order extends EntityAbstract
     const ADRESS_TYPE_SHIPPING = 'shipping_address';
 
     /**
+     * @return array|bool|mixed|string
+     */
+    public function export()
+    {
+        $data = (array)$this->getData();
+        return (array)['order' => $data];
+    }
+
+    /**
+     * @return \BSeller\Api\Handler\Response\HandlerInterface
+     */
+    public function create()
+    {
+        $this->validate();
+
+        /** @var \BSeller\Api\Handler\Request\Sales\OrderHandler $handler */
+        $handler = $this->requestHandler();
+
+        /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
+        $response = $handler->create(
+            $this->getSaleChannel(),
+            $this->getShippingCustomer(),
+            $this->getBillingCustomer(),
+            $this->getBoxCode(),
+            $this->getShoppingListCode(),
+            $this->getSalesmanCode(),
+            $this->getEmissionDate(),
+            $this->getIncludingDate(),
+            $this->getShipping(),
+            $this->getBrokenDeliveries(),
+            $this->getItems(),
+            $this->getOrderNumber(),
+            $this->getExternalOrderNumber(),
+            $this->getStoreOrderNumber(),
+            $this->getTagNote(),
+            $this->getOrderSource(),
+            $this->getPayments(),
+            $this->getOrderForConsuming(),
+            $this->getPublicity(),
+            $this->getFreightType(),
+            $this->getOrderType(),
+            $this->getBusinessUnit(),
+            $this->getValues()
+        );
+
+        return $response;
+    }
+
+    /**
      * @return string
      */
     public function getSaleChannel()
@@ -654,54 +703,5 @@ class Order extends EntityAbstract
 
         $this->setData('values', $values);
         return $this;
-    }
-
-    /**
-     * @return array|bool|mixed|string
-     */
-    public function export()
-    {
-        $data = (array)$this->getData();
-        return (array)['order' => $data];
-    }
-
-    /**
-     * @return \BSeller\Api\Handler\Response\HandlerInterface
-     */
-    public function create()
-    {
-        $this->validate();
-
-        /** @var \BSeller\Api\Handler\Request\Sales\OrderHandler $handler */
-        $handler = $this->requestHandler();
-
-        /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
-        $response = $handler->create(
-            $this->getSaleChannel(),
-            $this->getShippingCustomer(),
-            $this->getBillingCustomer(),
-            $this->getBoxCode(),
-            $this->getShoppingListCode(),
-            $this->getSalesmanCode(),
-            $this->getEmissionDate(),
-            $this->getIncludingDate(),
-            $this->getShipping(),
-            $this->getBrokenDeliveries(),
-            $this->getItems(),
-            $this->getOrderNumber(),
-            $this->getExternalOrderNumber(),
-            $this->getStoreOrderNumber(),
-            $this->getTagNote(),
-            $this->getOrderSource(),
-            $this->getPayments(),
-            $this->getOrderForConsuming(),
-            $this->getPublicity(),
-            $this->getFreightType(),
-            $this->getOrderType(),
-            $this->getBusinessUnit(),
-            $this->getValues()
-        );
-
-        return $response;
     }
 }

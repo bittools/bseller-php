@@ -15,7 +15,7 @@
  * @author    Julio Reis <julio.reis@b2wdigital.com>
  */
 
-namespace BSeller\Api\DataTransformer\Sales\Order\PaymentApproval;
+namespace BSeller\Api\DataTransformer\Sales\Order\Invoice;
 
 use BSeller\Api\DataTransformer\Builders;
 use BSeller\Api\DataTransformer\DataTransformerAbstract;

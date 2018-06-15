@@ -1,5 +1,4 @@
 <?php
-
 /**
  * BIT Tools Platform | B2W - Companhia Digital
  *
@@ -15,18 +14,15 @@
 
 namespace BSeller\Api\Handler\Request\Sales;
 
-use BSeller\Api\DataTransformer\Sales\Order\PaymentApproval\Create as PaymentApprovalCreate;
-use BSeller\Api\DataTransformer\Sales\Order\Create as OrderCreate;
+use BSeller\Api\DataTransformer\Sales\Order\Create as Create;
 use BSeller\Api\EntityInterface\Sales\Order;
 use BSeller\Api\Handler\Request\HandlerAbstract;
-use BSeller\Api\Handler\Response\HandlerInterface;
 
 class OrderHandler extends HandlerAbstract
 {
 
     /** @var string */
     protected $baseUrlPath = '/api/pedidos';
-
 
     public function create(
         $salesChannel,
@@ -54,7 +50,7 @@ class OrderHandler extends HandlerAbstract
         $values
     )
     {
-        $transformer = new OrderCreate(
+        $transformer = new Create(
             $salesChannel,
             $shippingCustomer,
             $billingCustomer,
@@ -84,41 +80,6 @@ class OrderHandler extends HandlerAbstract
 
         /** @var \BSeller\Api\Handler\Response\HandlerInterface $responseHandler */
         $responseHandler = $this->service()->post($this->baseUrlPath(), $body);
-        return $responseHandler;
-    }
-
-    public function approvePayment(
-        $orderId,
-        $transactionDate,
-        $bankCode,
-        $agencyCode,
-        $accountNumber,
-        $acquirer = null,
-        $returningCode = 0,
-        $authorizationId = 0,
-        $authorizingNsu = 0,
-        $ctfNsu = 0,
-        $interestValue = 0
-    )
-    {
-        $transformer = new PaymentApprovalCreate(
-            $orderId,
-            $transactionDate,
-            $bankCode,
-            $agencyCode,
-            $accountNumber,
-            $acquirer,
-            $returningCode,
-            $authorizationId,
-            $authorizingNsu,
-            $ctfNsu,
-            $interestValue
-        );
-
-        $body = $transformer->output();
-
-        /** @var \BSeller\Api\Handler\Response\HandlerInterface $responseHandler */
-        $responseHandler = $this->service()->post($this->baseUrlPath('pagamentos/aprovar'), $body);
         return $responseHandler;
     }
 

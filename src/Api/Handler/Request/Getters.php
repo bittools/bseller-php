@@ -28,6 +28,7 @@ use BSeller\Api\Handler\Request\Sales\TrackingHandler;
 use BSeller\Api\Handler\Request\Sales\PaymentMethodHandler;
 use BSeller\Api\Handler\Request\Sales\CarrierHandler;
 use BSeller\Api\Handler\Request\Sales\OrderHandler;
+use BSeller\Api\Handler\Request\Sales\Order\InvoiceHandler;
 use BSeller\Api\Handler\Request\Sales\VoucherHandler;
 
 trait Getters
@@ -88,6 +89,14 @@ trait Getters
     public function order()
     {
         return new OrderHandler($this);
+    }
+
+    /**
+     * @return InvoiceHandler
+     */
+    public function invoice()
+    {
+        return new InvoiceHandler($this);
     }
 
     /**
