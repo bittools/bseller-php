@@ -32,9 +32,7 @@ class TrackingHandler extends HandlerAbstract
         $params = [];
         $params['unidadeNegocio'] = $unidadeNegocio;
         if ($maxRegistros) {
-            $params = [
-                'maxRegistros' => $maxRegistros,
-            ];
+            $params['maxRegistros'] = $maxRegistros;
         }
 
         /** @var HandlerInterface $responseHandler */
