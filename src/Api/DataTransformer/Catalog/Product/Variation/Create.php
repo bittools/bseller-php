@@ -38,7 +38,7 @@ class Create extends DataTransformerAbstract
         $variation['nome'] = (string) $name;
         $variation['id'] = (int) $id;
 
-        $specifications = $this->translateArrayKeys($specifications);
+        $specifications = $this->translateArrayKeys($specifications, true);
 
         /** Build product variation's specifications. */
         $this->buildProductSpecifications($variation, (array) $specifications);

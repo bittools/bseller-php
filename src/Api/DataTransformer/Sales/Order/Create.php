@@ -53,28 +53,28 @@ class Create extends DataTransformerAbstract
     )
     {
         $order['canalVenda'] = $salesChannel;
-        $order['clienteEntrega'] = $this->translateArrayKeys($shippingCustomer);
-        $order['clienteFaturamento'] = $this->translateArrayKeys($billingCustomer);
+        $order['clienteEntrega'] = $this->translateArrayKeys($shippingCustomer, true);
+        $order['clienteFaturamento'] = $this->translateArrayKeys($billingCustomer, true);
         $order['codigoBox'] = $boxCode;
         $order['codigoListaCompras'] = $shoppingListCode;
         $order['codigoVendedor'] = $salesmanCode;
         $order['dataEmissao'] = $emissionDate;
         $order['dataInclusao'] = $includingDate;
-        $order['entrega'] = $this->translateArrayKeys($shipping);
+        $order['entrega'] = $this->translateArrayKeys($shipping, true);
         $order['entregasQuebradas'] = $brokenDeliveries;
-        $order['itens'] = $this->translateArrayKeys($items);
+        $order['itens'] = $this->translateArrayKeys($items, true);
         $order['numeroPedido'] = $orderNumber;
         $order['numeroPedidoExterno'] = $externalOrderNumber;
         $order['numeroPedidoLoja'] = $storeOrderNumber;
         $order['observacoesEtiqueta'] = $tagNote;
         $order['origemPedido'] = $orderSource;
-        $order['pagamentos'] = $this->translateArrayKeys($payments);
+        $order['pagamentos'] = $this->translateArrayKeys($payments, true);
         $order['pedidoParaConsumo'] = $orderForConsuming;
         $order['publicidade'] = $publicity;
         $order['tipoFrete'] = $freightType;
         $order['tipoPedido'] = $orderType;
         $order['unidadeNegocio'] = $businessUnit;
-        $order['valores'] = $this->translateArrayKeys($values);
+        $order['valores'] = $this->translateArrayKeys($values, true);
 
         $this->setOutputData($order);
         parent::__construct();

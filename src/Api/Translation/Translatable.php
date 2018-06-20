@@ -21,13 +21,19 @@ trait Translatable
 {
     protected $defaultLocale = 'en_us';
 
-    public function translate($text, $params = null)
+    public function translate($text, $params = null, $reverse = false)
     {
         $handle = fopen(__DIR__ . '/locale/' . $this->defaultLocale . '.csv', "r");
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
-                if (ltrim(explode('","', $line)[0], '"') === $text) {
-                    return vsprintf(rtrim(explode('","', $line)[1], "\"\n"), $params);
+                if ($reverse) {
+                    if (rtrim(explode('","', $line)[1], "\"\n") === $text) {
+                        return vsprintf(ltrim(explode('","', $line)[0], '"'), $params);
+                    }
+                } else {
+                    if (ltrim(explode('","', $line)[0], '"') === $text) {
+                        return vsprintf(rtrim(explode('","', $line)[1], "\"\n"), $params);
+                    }
                 }
             }
         }
@@ -39,12 +45,12 @@ trait Translatable
         $this->defaultLocale = $localeFormat;
     }
 
-    protected function translateArrayKeys($arrayToTranslate)
+    protected function translateArrayKeys($arrayToTranslate, $reverse = false)
     {
         foreach ($arrayToTranslate as $key => $item) {
-            $keyTranslated = $this->translate($key);
+            $keyTranslated = $this->translate($key, null, $reverse);
             if (is_array($item)) {
-                $tmpValue = $this->translateArrayKeys($item);
+                $tmpValue = $this->translateArrayKeys($item, $reverse);
             } else {
                 $tmpValue = $item;
             }
