@@ -76,6 +76,41 @@ class Order extends EntityAbstract
         return $response;
     }
 
+    public function getNativeJson()
+    {
+        /** @var \BSeller\Api\Handler\Request\Sales\OrderHandler $handler */
+        $handler = $this->requestHandler();
+
+        /** @var string $response */
+        $response = $handler->nativeJson(
+            $this->getSaleChannel(),
+            $this->getShippingCustomer(),
+            $this->getBillingCustomer(),
+            $this->getBoxCode(),
+            $this->getShoppingListCode(),
+            $this->getSalesmanCode(),
+            $this->getEmissionDate(),
+            $this->getIncludingDate(),
+            $this->getShipping(),
+            $this->getBrokenDeliveries(),
+            $this->getItems(),
+            $this->getOrderNumber(),
+            $this->getExternalOrderNumber(),
+            $this->getStoreOrderNumber(),
+            $this->getTagNote(),
+            $this->getOrderSource(),
+            $this->getPayments(),
+            $this->getOrderForConsuming(),
+            $this->getPublicity(),
+            $this->getFreightType(),
+            $this->getOrderType(),
+            $this->getBusinessUnit(),
+            $this->getValues()
+        );
+
+        return $response;
+    }
+
     /**
      * @return string
      */

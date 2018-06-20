@@ -83,6 +83,61 @@ class OrderHandler extends HandlerAbstract
         return $responseHandler;
     }
 
+    public function nativeJson(
+        $salesChannel,
+        $shippingCustomer,
+        $billingCustomer,
+        $boxCode,
+        $shoppingListCode,
+        $salesmanCode,
+        $emissionDate,
+        $includingDate,
+        $shipping,
+        $brokenDeliveries,
+        $items,
+        $orderNumber,
+        $externalOrderNumber,
+        $storeOrderNumber,
+        $tagNote,
+        $orderSource,
+        $payments,
+        $orderForConsuming,
+        $publicity,
+        $freightType,
+        $orderType,
+        $businessUnit,
+        $values
+    )
+    {
+        $transformer = new Create(
+            $salesChannel,
+            $shippingCustomer,
+            $billingCustomer,
+            $boxCode,
+            $shoppingListCode,
+            $salesmanCode,
+            $emissionDate,
+            $includingDate,
+            $shipping,
+            $brokenDeliveries,
+            $items,
+            $orderNumber,
+            $externalOrderNumber,
+            $storeOrderNumber,
+            $tagNote,
+            $orderSource,
+            $payments,
+            $orderForConsuming,
+            $publicity,
+            $freightType,
+            $orderType,
+            $businessUnit,
+            $values
+        );
+
+        return json_encode($transformer->output());
+    }
+
     /**
      * @return null
      */
