@@ -61,7 +61,6 @@ class HandlerDefault extends HandlerAbstract implements HandlerInterfaceSuccess
      */
     public function bodyString()
     {
-        $this->setDefaultLocale('en_us');
         $body = (string) $this->httpResponse()->getBody();
         $bodyTranslated = json_encode($this->translateArrayKeys(json_decode($body, true)));
 

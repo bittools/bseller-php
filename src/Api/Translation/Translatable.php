@@ -19,7 +19,7 @@ namespace BSeller\Api\Translation;
 
 trait Translatable
 {
-    protected $defaultLocale = 'pt_br';
+    protected $defaultLocale = 'en_us';
 
     public function translate($text, $params = null)
     {
