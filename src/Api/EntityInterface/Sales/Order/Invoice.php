@@ -62,6 +62,24 @@ class Invoice extends EntityAbstract
     }
 
     /**
+     * @return \BSeller\Api\Handler\Response\HandlerInterface
+     */
+    public function reprove()
+    {
+        $this->validate();
+
+        /** @var \BSeller\Api\Handler\Request\Sales\Order\InvoiceHandler $handler */
+        $handler = $this->requestHandler();
+
+        /** @var \BSeller\Api\Handler\Response\HandlerInterface $response */
+        $response = $handler->reprove(
+            $this->getOrderId()
+        );
+
+        return $response;
+    }
+
+    /**
      * @return string
      */
     public function getOrderId()

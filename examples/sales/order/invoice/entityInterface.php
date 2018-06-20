@@ -42,3 +42,11 @@ $entityInterface->setOrderId($orderId)
  */
 $response = $entityInterface->create();
 var_dump($response->body());
+
+/**
+ * REPROVE INVOICE AT BSELLER
+ *
+ * @var BSeller\Api\Handler\Response\HandlerInterface $response
+ */
+$response = $entityInterface->reprove($orderId);
+var_dump($response->body());
