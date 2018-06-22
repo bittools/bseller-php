@@ -408,7 +408,8 @@ class Order extends EntityAbstract
             'groupingProducedCode' => $groupingProducedCode,
             'stockStablishmentCode' => $stockStablishmentCode,
             'exitStablishmentCode' => $exitStablishmentCode,
-            'itemCode' => $itemCode,
+            //needed to use native language for this attribute because bseller sometimes call this attribute as "codigoTerceiro" and sometimes as "codigoItem";
+            'codigoItem' => $itemCode,
             'guaranteedItemCode' => $guaranteedItemCode,
             'kitItemCode' => $kitItemCode,
             'kitParentCode' => $kitParentCode,
@@ -549,18 +550,15 @@ class Order extends EntityAbstract
     }
 
     /**
-     * @param float $value
-     * @param int $paymentMethodCode
-     * @param int $paymentConditionCode
-     * @param array $addressData
-     * @param array $creditCardData
-     * @param string $couponCode
-     * @param string $bankCode
-     * @param string $bankAgencyCode
-     * @param string $accountNumber
-     * @param string $ticketExpirationDate
-     * @param string $voucherCode
-     * @param string $ourNumber
+     * @param $value
+     * @param $paymentMethodCode
+     * @param $paymentConditionCode
+     * @param $addressData
+     * @param $creditCardData
+     * @param $ticketData
+     * @param $couponData
+     * @param $voucherData
+     * @param null $ourNumber
      * @return $this
      */
     public function addPayment(
@@ -569,29 +567,44 @@ class Order extends EntityAbstract
         $paymentConditionCode,
         $addressData,
         $creditCardData,
-        $couponCode = null,
-        $bankCode = null,
-        $bankAgencyCode = null,
-        $accountNumber = null,
-        $ticketExpirationDate = null,
-        $voucherCode = null,
+        $ticketData,
+        $couponData,
+        $voucherData,
         $ourNumber = null
     )
     {
         $payments = $this->getPayments();
 
+        //ticket data
+        if ($ticketData) {
+            $bankCode = $ticketData['bankCode'];
+            $bankAgencyCode = $ticketData['bankAgencyCode'];
+            $accountNumber = $ticketData['accountNumber'];
+            $ticketExpirationDate = $ticketData['ticketExpirationDate'];
+        }
+
+        //coupon data
+        if ($couponData) {
+            $couponCode = $ticketData['couponCode'];
+        }
+
+        //voucher data
+        if ($voucherData) {
+            $voucherCode = $ticketData['voucherCode'];
+        }
+
         $payment = [
             'creditCardData' => $creditCardData,
-            'bankAgencyCode' => $bankAgencyCode,
-            'bankCode' => $bankCode,
+            'bankAgencyCode' => isset($bankAgencyCode) ? $bankAgencyCode : null,
+            'bankCode' => isset($bankCode) ? $bankCode : null,
             'paymentConditionCode' => $paymentConditionCode,
-            'couponCode' => $couponCode,
+            'couponCode' => isset($couponCode) ? $couponCode : null,
             'paymentMethodCode' => $paymentMethodCode,
-            'voucherCode' => $voucherCode,
-            'ticketExpirationDate' => $ticketExpirationDate,
+            'voucherCode' => isset($voucherCode) ? $voucherCode : null,
+            'ticketExpirationDate' => isset($ticketExpirationDate) ? $ticketExpirationDate : null,
             'addressData' => $addressData,
             'ourNumber' => $ourNumber,
-            'accountNumber' => $accountNumber,
+            'accountNumber' => isset($accountNumber) ? $accountNumber : null,
             'value' => $value
         ];
 
