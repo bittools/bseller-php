@@ -22,7 +22,7 @@ class TrackingHandler extends HandlerAbstract
 {
 
     /** @var string */
-    protected $baseUrlPath = '/api/pedidos/tracking/massivo';
+    protected $baseUrlPath = '/api/pedidos/tracking';
 
     /**
      * @return HandlerInterface
@@ -36,7 +36,7 @@ class TrackingHandler extends HandlerAbstract
         }
 
         /** @var HandlerInterface $responseHandler */
-        $responseHandler = $this->service()->get($this->baseUrlPath(null, $params));
+        $responseHandler = $this->service()->get($this->baseUrlPath('/massivo', $params));
         return $responseHandler;
     }
 
