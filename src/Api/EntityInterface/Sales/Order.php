@@ -568,8 +568,8 @@ class Order extends EntityAbstract
         $addressData,
         $creditCardData,
         $ticketData,
-        $couponData,
-        $voucherData,
+        $couponCode = null,
+        $voucherCode = null,
         $ourNumber = null
     )
     {
@@ -583,24 +583,14 @@ class Order extends EntityAbstract
             $ticketExpirationDate = $ticketData['ticketExpirationDate'];
         }
 
-        //coupon data
-        if ($couponData) {
-            $couponCode = $ticketData['couponCode'];
-        }
-
-        //voucher data
-        if ($voucherData) {
-            $voucherCode = $ticketData['voucherCode'];
-        }
-
         $payment = [
             'creditCardData' => $creditCardData,
             'bankAgencyCode' => isset($bankAgencyCode) ? $bankAgencyCode : null,
             'bankCode' => isset($bankCode) ? $bankCode : null,
             'paymentConditionCode' => $paymentConditionCode,
-            'couponCode' => isset($couponCode) ? $couponCode : null,
+            'couponCode' => $couponCode,
             'paymentMethodCode' => $paymentMethodCode,
-            'voucherCode' => isset($voucherCode) ? $voucherCode : null,
+            'voucherCode' => $voucherCode,
             'ticketExpirationDate' => isset($ticketExpirationDate) ? $ticketExpirationDate : null,
             'addressData' => $addressData,
             'ourNumber' => $ourNumber,
